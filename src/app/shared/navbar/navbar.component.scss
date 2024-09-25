@@ -1,0 +1,78 @@
+.navbar {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  position: relative;
+  font-weight: 800;
+
+  .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+  }
+
+  .logo a {
+      color: black;
+      text-decoration: none;
+      font-size: 24px;
+  }
+
+  .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+
+      li {
+          a {
+              color: black;
+              text-decoration: none;
+          }
+      }
+  }
+
+  .menu-icon {
+      display: none; /* Ocultar por defecto */
+      color: black;
+      font-size: 32px;
+      cursor: pointer;
+      margin-left: auto; /* Alinear a la derecha */
+  }
+
+  // Estilos para pantallas pequeñas
+  @media (max-width: 768px) {
+      .nav-links {
+          position: absolute;
+          top: 50px;
+          right: 0;
+          background-color: #333; /* Color de fondo */
+          width: 100%;
+          height: calc(100vh - 50px);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          display: none;
+          z-index: 1000; /* Asegurarse de que está por encima de otros elementos */
+
+          li {
+              margin: 20px 0;
+
+              a {
+                color: white; /* Color del texto en colapso */
+            }
+              
+          }
+      }
+
+      .nav-links.active {
+          display: flex; /* Mostrar el menú cuando está activo */
+      }
+
+      .menu-icon {
+          display: block; /* Mostrar el ícono de menú en pantallas pequeñas */
+      }
+  }
+}
+
+.mano {
+  cursor: pointer;
+}

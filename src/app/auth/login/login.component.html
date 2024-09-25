@@ -1,0 +1,50 @@
+<app-navbar/>
+<div class="main">
+    <div class="main-card">
+            <div class="l-card">
+                <img src="login.png" alt="">
+            </div>
+
+            <div class="h-titles">
+                <h1>Iniciar Sesión con tu Email</h1>
+                <h4>Empieza a gestionar tu horario y preparate para el próximo semestre.</h4>
+
+
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="container">
+                        <div class="inputs">
+                            <div class="input-container">
+                                <i class="fas fa-envelope"></i>
+                                <input formControlName="email" placeholder="Email" />
+                            </div>
+
+                            <div class="input-container">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" formControlName="password" placeholder="Contraseña" />
+
+                            </div>
+                        </div>
+                      
+                        <div class="boton">
+    
+                            <button type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</button>
+    
+                        </div>
+                    </div>
+                   
+                </form>
+
+                <div class="footer">
+                    <div class="footer-content">
+                        <h6>¿No tienes cuenta? </h6>
+                        <button (click)="openRegister()">Registrarse</button>
+                    </div>
+                
+
+                </div>
+                
+
+
+            </div>
+    </div>
+</div>

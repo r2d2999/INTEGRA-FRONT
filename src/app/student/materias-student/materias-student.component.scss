@@ -1,0 +1,109 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+
+  .container-subject{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .main-window{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+
+    h2{
+      font-size: 35px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    h5{
+      font-size: 20px;
+      line-height: 1.2;
+      color: #4b4b4b;
+      margin: 0;
+
+    }
+  }
+
+  .sub-btn{
+    border: none;
+    background-color: #ffffff;
+    color: rgb(0, 26, 130);
+    font-weight: bolder;
+  }
+
+
+  .b-table{
+    padding: 10px;
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.768);
+  }
+
+
+  
+  .sub-btn-delete{
+    border: none;
+    background-color: #ffffff;
+    color: rgb(163, 8, 8);
+    font-weight: bolder;
+  }
+
+  .end-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .end-btn{
+
+    background-color: rgb(3, 3, 200);
+    outline: none;
+    border:  1px solid rgb(3, 3, 200);
+    padding: 15px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 20px;
+    width: 100%;
+    height: auto;
+    max-width: 280px;
+  }
+
+  .end-btn:disabled {
+    background-color: grey;
+    border: 1px solid grey;
+    cursor: not-allowed;
+}
+
+
+.end-btn2{
+  margin-top: 15px;
+  background-color: rgb(20, 164, 32);
+  outline: none;
+  border:  1px solid rgb(20, 164, 32);
+  padding: 15px 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 20px;
+  width: 100%;
+  height: auto;
+  max-width: 280px;
+}

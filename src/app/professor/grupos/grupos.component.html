@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<div class="main-c">
+
+    <div class="b-header">
+        <h2>Grupos Asignados</h2>
+        <p>La tabla muestra todos los grupos que has seleccionado. Si deseas realizar un cambio, solicitalo con soporte.</p>
+    </div>
+
+    <table class="b-table">
+        <thead>
+          <tr>
+            <th>ID GRUPO</th>
+            <th>Nombre</th>
+            <th>Profesor ID</th>
+            <th>Cupo</th>
+            <th>Materia</th>
+            <th>Día</th>
+            <th>Hora de Inicio</th>
+            <th>Hora de Fin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let grupo of list_groups">
+            <td>{{ grupo._id }}</td>
+            <td>{{ grupo.name }}</td>
+            <td>{{ grupo.profesor }}</td>
+            <td>{{ grupo.cupo }}</td>
+            <td>{{ grupo.materia }}</td>
+            <td>{{ grupo.horario.dia }}</td>
+            <td>{{ grupo.horario.horaInicio }}</td>
+            <td>{{ grupo.horario.horaFin }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div class="b-btns">
+        <button class="btn btn-primary" (click)="getBack()">Volver</button>
+        <button class="btn btn-warning" (click)="goToSubjects()">Solicitar Cambios</button>
+
+      </div>
+      
+</div>

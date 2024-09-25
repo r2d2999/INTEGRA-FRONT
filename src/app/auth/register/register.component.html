@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<div class="main">
+  <div class="main-card">
+    <div class="l-card">
+      <img src="usuario.png" alt="">
+    </div>
+
+    <div class="h-titles">
+      <h1>Registro de Usuario</h1>
+      <h4>Crea un Perfil con tus credenciales de la institución.</h4>
+
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="container">
+          <div class="inputs">
+            <div class="input-container">
+              <i class="fas fa-user"></i>
+              <input formControlName="name" placeholder="Nombre Completo">
+            </div>
+
+            <div class="input-container">
+              <i class="fas fa-school"></i>
+              <input formControlName="tipo" placeholder="Estudiante/Alumno">
+            </div>
+            <div class="input-container">
+              <i class="fas fa-envelope"></i>
+              <input formControlName="email" placeholder="email">
+            </div>
+            <div class="input-container">
+              <i class="fas fa-lock"></i>
+              <input type="password" formControlName="password" placeholder="contraseña">
+            </div>
+
+          </div>
+        
+          <div class="boton">
+            <button [disabled]="!userForm.valid" class="mt-3" type="submit">Registrarse</button>
+
+          </div>
+        </div>
+       
+      </form>
+
+    </div>
+  </div>
+</div>

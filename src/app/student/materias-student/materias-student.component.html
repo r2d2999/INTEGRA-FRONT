@@ -1,0 +1,82 @@
+<app-navbar/>
+
+<div class="main-window">
+  
+<h2>Materias Disponibles</h2>
+<h5 class="mt-3">Recuerda que algúnas materias se pueden empalmar. Elige la matería que más sea de tu preferencia.</h5>
+<div >
+  <table class="b-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Código</th>
+        <th>Créditos</th>
+        <th>Cupos</th>
+        <th>Día</th>
+        <th>Hora Inicio</th>
+        <th>Hora Fin</th>
+        <th>Profesor</th>
+        <th>Añadir</th> <!-- Nueva columna -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let materia of materias">
+        <td>{{ materia.nombre }}</td>
+        <td>{{ materia.codigo }}</td>
+        <td>{{ materia.creditos }}</td>
+        <td>{{ materia.cupos }}</td>
+        <td>{{ materia.horario.dia }}</td>
+        <td>{{ materia.horario.horaInicio }}</td>
+        <td>{{ materia.horario.horaFin }}</td>
+        <td>{{ teachersMap[materia.profesores.profesor1] || 'No asignado' }}, {{ teachersMap[materia.profesores.profesor2] || 'No asignado' }}</td>
+        <td><button (click)="anadirMateria(materia)" class="sub-btn">Añadir</button></td> <!-- Botón para añadir -->
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+
+
+
+
+    <div class="container-subject" >
+      <h2 class="mt-4">Materias Seleccionadas</h2>
+      <h5>En base a tu selección, asi podría quedar tu horario:</h5>
+
+      <div class="end-table">
+        <table class="b-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Código</th>
+              <th>Créditos</th>
+              <th>Día</th>
+              <th>Hora Inicio</th>
+              <th>Hora Fin</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let materia of materiasSeleccionadas">
+              <td>{{ materia.nombre }}</td>
+             <td>{{ materia.codigo }}</td>
+            <td>{{ materia.creditos }}</td>
+            <td>{{ materia.horario.dia }}</td>
+             <td>{{ materia.horario.horaInicio }}</td>
+              <td>{{ materia.horario.horaFin }}</td>
+              <td><button (click)="quitarMateria(materia)" class="sub-btn-delete">Quitar</button></td> <!-- Botón para añadir -->
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    <div class="end-buttons">
+      <button (click)="endSubject()" class="end-btn"
+      [disabled]="materiasSeleccionadas.length < 3">Terminar Seleccion</button>
+      <button  class="end-btn2" *ngIf="!isReady" (click)="printHorario()" >imprimir horario</button>
+  
+    </div>      
+   
+    </div>
+</div>

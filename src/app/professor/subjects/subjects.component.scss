@@ -1,0 +1,151 @@
+.mainc {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px; /* Ancho máximo */
+  margin: auto; /* Centrar el contenedor */
+
+  p{
+    line-height: 1.25;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.b-table {
+  padding: 10px;
+  box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.768);
+  width: 100%; /* Asegura que la tabla ocupe todo el ancho del contenedor */
+}
+
+
+.chosers{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-evenly;
+  margin-top: 20px;
+
+
+  .choser-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.564);
+
+    h2{
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+
+    }
+
+    p{
+      width: 100%;
+      text-align: justify;
+      line-height: 1.2;
+
+    }
+
+    mat-form-field{
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .add-btn{
+      padding: 6px 0;
+      width: 100%;
+      max-width: 200px;
+      align-self: center;
+      background-color: rgb(9, 152, 21);
+      border: 1px solid rgb(9, 152, 21);
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 15px;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.778); 
+    }
+  }
+}
+
+
+
+
+.finalizar{
+  margin-top: 40px;
+  padding: 8px 0;
+  width: 100%;
+  max-width: 300px;
+  align-self: center;
+  background-color: rgb(20, 3, 167);
+  border: 1px solid rgb(20, 3, 167);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 20px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.778);
+}
+
+.finalizar:disabled{
+  background-color: grey;
+  border: 1px solid grey;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .mainc {
+      padding: 15px; /* Ajustar padding en pantallas pequeñas */
+  }
+
+  th, td {
+      padding: 6px; /* Reducir padding en pantallas pequeñas */
+  }
+
+  h2 {
+      font-size: 1.5em; /* Reducir tamaño de fuente en pantallas pequeñas */
+  }
+
+  .b-table {
+      font-size: 0.9em; /* Reducir tamaño de fuente de la tabla */
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+      font-size: 1.2em; /* Ajustar tamaño de fuente en pantallas muy pequeñas */
+  }
+
+  table {
+      font-size: 0.8em; /* Ajustar tamaño de fuente en pantallas pequeñas */
+  }
+
+  .b-table {
+      padding: 5px; /* Reducir padding en pantallas muy pequeñas */
+  }
+}

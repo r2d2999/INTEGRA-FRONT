@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="logo">
+      <a [routerLink]="'/home'">INTEGRA</a>
+    </div>
+    <ul [ngClass]="{'active': isMenuOpen}" class="nav-links">
+      <li><a [routerLink]="'/home'">Inicio</a></li>
+      <li><a [routerLink]="'/contacto'">Contacto</a></li>
+      
+      <li *ngIf="isLoggedIn"><a href="#">Perfil</a></li>
+      <li *ngIf="isLoggedIn" (click)="logout()" class="mano"><a>Cerrar Sesión</a></li>
+      
+      <li *ngIf="!isLoggedIn"><a [routerLink]="'/login'">Login</a></li>
+      <li *ngIf="!isLoggedIn"><a [routerLink]="'/register'">Registro</a></li>
+    </ul>
+    <span class="menu-icon" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </span>
+  </div>
+</nav>

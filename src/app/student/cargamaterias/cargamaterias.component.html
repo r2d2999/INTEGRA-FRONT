@@ -1,0 +1,65 @@
+<app-navbar/>
+
+<div class="main-c">
+  <!-- Tabla principal -->
+  <div class="b-headers">
+    <h2>Lista de Grupos Disponibles</h2>
+    <p>Elige las materias necesarias para completar tu carga académica. Recuerda el mínimo de carga es de 3 y el máximo es de 7.</p>
+  </div>
+  
+  <table class="b-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Profesor</th>
+        <th>Cupo</th>
+        <th>Materia</th>
+        <th>Horario</th>
+        <th>Añadir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grupo of list_grupos">
+        <td>{{ grupo.name }}</td>
+        <td>{{ grupo.profesor }}</td>
+        <td>{{ grupo.cupo }}</td>
+        <td>{{ grupo.materia }}</td>
+        <td>{{ grupo.horario.dia }} {{ grupo.horario.horaInicio }} - {{ grupo.horario.horaFin }}</td>
+        <td><button (click)="addSubject(grupo)">Añadir</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Tabla de materias seleccionadas -->
+  <div class="b-headers mt-4">
+    <h2>Materias Seleccionadas</h2>
+    <p>Vista Previa de como podría quedar tu carga académica.</p>
+  </div>
+  
+  <table class="b-table" id="materias-seleccionadas">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Profesor</th>
+        <th>Materia</th>
+        <th>Horario</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let materia of selectedMaterias">
+        <td>{{ materia.name }}</td>
+        <td>{{ materia.profesor }}</td>
+        <td>{{ materia.materia }}</td>
+        <td>{{ materia.horario.dia }} {{ materia.horario.horaInicio }} - {{ materia.horario.horaFin }}</td>
+        <td><button (click)="removeSubject(materia._id)">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="selectedMaterias.length >= 3 && selectedMaterias.length <= 7" class="mt-3 b-footer">
+    <button class="btn btn-primary" (click)="cerrarCarga()">Cerrar Carga</button>
+
+    <button *ngIf="closeCharge === true" class="btn btn-success" (click)="imprimirCarga()">Imprimir Horario</button>
+  </div>
+</div>

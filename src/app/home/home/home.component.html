@@ -1,0 +1,69 @@
+
+<app-navbar/>
+<div class="h-container">
+    <div class="row row-1">
+
+        <h2 class="title">Sistemas de control de Inscripciones y Carga de Materias (Beta)</h2>
+        @if (userTipe) {
+            @if(userTipe === 'estudiante'){
+                <h4 class="subtitle">Hola, {{ name}}</h4>
+                <button  *ngIf="!inscrito" class="btn-hover mt-5" (click)="choseSubjectStudent()">Eligir Materias </button>
+                <div *ngIf="inscrito">
+                    <h3>!Feliciades, ya estas inscrito!</h3>
+                    <button class="btn btn-r">Ver Horario</button>
+                </div>
+
+
+            }@else if(userTipe === 'profesor'){
+                <h4 class="subtitle">Hola, profesor</h4>
+                <div *ngIf="horario === false" class="pro-btns">
+                    <button class="btn-hover mt-5" (click)="choseSubject()">Eligir Materias </button>
+
+
+                </div>
+
+                <div *ngIf="horario === true">
+                    <h2>!Felicidades, has agregado tu horario, laboral!</h2>
+                    <button class="btn-hover mt-5" (click)="openGroups()">Ver Grupos </button>
+
+                </div>
+
+            }
+
+
+
+        }@else {
+            <h4 class="subtitle">Elige el perfil adecuado para ti...</h4>
+            <div class="btn-choiser">
+                <button class="btn-hover mt-5" (click)="showLogin()">Alumno</button>
+                <button class="btn-hover mt-5" (click)="choseSubject()">Profesor</button>
+            </div>
+           
+
+        }
+        
+
+    
+
+    </div>  
+
+    <div class="row-2">
+        <div class="item-container">
+            <div class="h-item">
+                <h5><i class="bi bi-stopwatch"></i>Control de Entradas y Salidas</h5>
+                
+
+            </div>
+
+            <div class="h-item">
+                <h5><i class="bi bi-stopwatch"></i>Base de Datos en Tiempo Real</h5>
+            </div>
+
+            <div class="h-item">
+                <h5><i class="bi bi-stopwatch"></i>Simple y Seguro</h5>
+            </div>
+        </div>
+
+    </div>
+  
+</div>

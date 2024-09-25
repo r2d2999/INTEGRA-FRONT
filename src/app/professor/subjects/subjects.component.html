@@ -1,0 +1,66 @@
+<app-navbar/>
+
+<div class="mainc">
+  <h2>Horario Laboral</h2>
+  <p>Esta tabla contiene una vista previa de como podrían quedar las materias asignadas a tu horario laboral. Recuerde que una materia solamente puede ser impartida hasta por 2 profesores.</p>
+  
+  <table class="b-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Código</th>
+        <th>Créditos</th>
+        <th>Cupos</th>
+        <th>Día</th>
+        <th>Hora Inicio</th>
+        <th>Hora Fin</th>
+        <th>Profesor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let materia of materiasSeleccionadas">
+        <td>{{ materia.nombre }}</td>
+        <td>{{ materia.codigo }}</td>
+        <td>{{ materia.creditos }}</td>
+        <td>{{ materia.cupos }}</td>
+        <td>{{ materia.horario.dia }}</td>
+        <td>{{ materia.horario.horaInicio }}</td>
+        <td>{{ materia.horario.horaFin }}</td>
+        <td>{{ materia.profesores.profesor1}}, {{ materia.profesores.profesor2 }} </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="chosers">
+    <div class="choser-container">
+      <h2>Agregar de Materias</h2>
+      <p>Selecciona una de las materias disponibles para agregarla a tu horario laboral.</p>
+      <mat-form-field appearance="fill">
+        <mat-label>Materias Disponibles</mat-label>
+        <mat-select [(value)]="selectedMateriaId">
+          <mat-option *ngFor="let materia of materiasDisponibles" [value]="materia._id">
+            {{ materia.nombre }} ({{ materia.codigo }})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button class="btn btn-success" (click)="addSubject(selectedMateriaId)">Seleccionar</button>
+    </div>
+
+    <div class="choser-container">
+      <h2>Quitar de Materias</h2>
+      <p>Selecciona una de las materias que quieras retirar de tu horario laboral, recuerda.</p>
+      <mat-form-field appearance="fill">
+        <mat-label>Materias Agregadas</mat-label>
+        <mat-select [(value)]="selectedMateriaIdToRemove">
+          <mat-option *ngFor="let materia of materiasSeleccionadas" [value]="materia._id">
+            {{ materia.nombre }} ({{ materia.codigo }})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button class="btn btn-danger" (click)="removeSubject(selectedMateriaIdToRemove)">Quitar</button>
+    </div>
+  </div>
+
+  <button class="finalizar"  [disabled]="materiasSeleccionadas.length === 0"
+   (click)="updateAllInfo()">Finalizar Carga</button>
+</div>
